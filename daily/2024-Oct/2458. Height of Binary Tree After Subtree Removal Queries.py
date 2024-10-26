@@ -10,8 +10,7 @@ class Solution:
 
         def heightFind(node: TreeNode, level: int) -> int:
             leftHeight = heightFind(node.left, level+1) if node.left else level
-            rightHeight = heightFind(node.right, level+1) if node.right else level
-            self.nodes[node.val] = node
+            rightHeight = heightFind(node.right, level+1) if node.right else levela
             self.leftHeight[node.val] = leftHeight
             self.rightHeight[node.val] = rightHeight
             return max(leftHeight, rightHeight)
@@ -24,7 +23,6 @@ class Solution:
                 self.heightWithout[node.right.val] = max(self.heightWithout[node.val], self.leftHeight[node.val])
                 heightWO(node.right)
 
-        self.nodes = [None] * 100001
         self.leftHeight = [0] * 100001
         self.rightHeight = [0] * 100001
         self.heightWithout = [0] * 100001
